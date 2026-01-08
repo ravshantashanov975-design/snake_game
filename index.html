@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake O'yini</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐍 Snake O'yini</h1>
+            <div class="stats">
+                <div class="stat">
+                    <span class="label">Natija:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Eng yuqori:</span>
+                    <span id="highScore">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div id="gameOver" class="modal hidden">
+                <div class="modal-content">
+                    <h2>O'yin Tugadi!</h2>
+                    <p>Sizning natijangiz: <span id="finalScore">0</span></p>
+                    <button id="restartBtn" class="btn btn-primary">Qayta o'ynash</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <p><strong>Klaviatura:</strong> Strelkalar ↑ ↓ ← → yoki WASD</p>
+            <button id="pauseBtn" class="btn" style="display: none;">Pauza</button>
+            <button id="startBtn" class="btn btn-primary">O'ynashni boshlash</button>
+            <button id="settingsBtn" class="btn">⚙️ Sozlamalar</button>
+        </div>
+
+        <!-- Mobil Boshqaruv -->
+        <div class="mobile-controls">
+            <div class="direction-pad">
+                <button class="direction-btn up" data-direction="up">↑</button>
+                <button class="direction-btn left" data-direction="left">←</button>
+                <button class="direction-btn down" data-direction="down">↓</button>
+                <button class="direction-btn right" data-direction="right">→</button>
+            </div>
+        </div>
+
+        <div id="settingsModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Sozlamalar</h2>
+                    <button id="closeSettings" class="close-btn">&times;</button>
+                </div>
+                <div class="settings-body">
+                    <div class="setting-item">
+                        <label for="speedSlider"><strong>O'yin tezligi</strong></label>
+                        <div class="slider-container">
+                            <input type="range" id="speedSlider" min="50" max="200" value="100" step="10">
+                            <span id="speedValue">100ms</span>
+                        </div>
+                        <small>Kichikroq = Tezroq</small>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="foodCountSlider"><strong>Bir vaqtda ovqatlar soni</strong></label>
+                        <div class="slider-container">
+                            <input type="range" id="foodCountSlider" min="1" max="5" value="1" step="1">
+                            <span id="foodCountValue">1</span>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <label><strong>Rang tanlang</strong></label>
+                        <div class="color-picker">
+                            <button class="color-btn active" data-color="#00ff00" style="background: #00ff00;" title="Yashil"></button>
+                            <button class="color-btn" data-color="#00ffff" style="background: #00ffff;" title="Cyan"></button>
+                            <button class="color-btn" data-color="#ff00ff" style="background: #ff00ff;" title="Magenta"></button>
+                            <button class="color-btn" data-color="#ffff00" style="background: #ffff00;" title="Sariq"></button>
+                        </div>
+                    </div>
+                </div>
+                <button id="saveSSettingsBtn" class="btn btn-primary">Saqlash</button>
+            </div>
+        </div>
+    </div>
+    <script src="game/script.js"></script>
+</body>
+</html>
